@@ -1,6 +1,6 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
+    "name": "ymd/civi-reconciler",
+    "description": "The Civirm VoterListRegistry Reconciler.",
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
