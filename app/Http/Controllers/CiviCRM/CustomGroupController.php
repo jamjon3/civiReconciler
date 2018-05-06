@@ -8,20 +8,20 @@
 
 namespace App\Http\Controllers\CiviCRM;
 
-use YMD\CiviCRMconnector\Entity\ContactType;
+use YMD\CiviCRMconnector\Entity\CustomGroup;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 /**
- * Description of ContactTypeController
+ * Description of CustomGroupController
  *
  * @author jam
  */
-class ContactTypeController extends Controller {
+class CustomGroupController extends Controller {
   public function findAll(): array {
-    return ContactType::findAll();
+    return CustomGroup::findAll();
   }
-  public function findByLabel(string $label): array {
-    return ContactType::findByLabel($label);
+  public function findByTitle(string $title): array {
+    return CustomGroup::findByTitle($title);
   }
 }
