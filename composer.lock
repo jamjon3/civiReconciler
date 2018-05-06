@@ -2460,12 +2460,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jamjon3/civicrm-connector.git",
-                "reference": "b879322f0d509bee42acb9055fcfaa12e7a16454"
+                "reference": "a1cc1dcbd05fd0c0fec8d9d3b840264e5872f2ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jamjon3/civicrm-connector/zipball/b879322f0d509bee42acb9055fcfaa12e7a16454",
-                "reference": "b879322f0d509bee42acb9055fcfaa12e7a16454",
+                "url": "https://api.github.com/repos/jamjon3/civicrm-connector/zipball/a1cc1dcbd05fd0c0fec8d9d3b840264e5872f2ca",
+                "reference": "a1cc1dcbd05fd0c0fec8d9d3b840264e5872f2ca",
                 "shasum": ""
             },
             "require": {
@@ -2500,7 +2500,7 @@
                 "source": "https://github.com/jamjon3/civicrm-connector/tree/master",
                 "issues": "https://github.com/jamjon3/civicrm-connector/issues"
             },
-            "time": "2018-05-06T03:35:17+00:00"
+            "time": "2018-05-06T14:44:37+00:00"
         }
     ],
     "packages-dev": [
