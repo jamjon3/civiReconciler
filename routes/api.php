@@ -14,8 +14,10 @@ use Illuminate\Http\Request;
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+  return $request->user();
 });
-Route::middleware('auth:api')->get('/civicrm/contact/{id}', function (Request $request) {
-    return $request->contact();
+Route::middleware('auth:api')->prefix('civicrm')->group(function () {
+  Route::prefix('contact')->group(function() {
+    Route::get('{id}','CiviCRM\ContactController@findById');
+  });
 });
