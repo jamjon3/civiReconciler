@@ -19,5 +19,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::middleware('auth:api')->prefix('civicrm')->group(function () {
   Route::prefix('contact')->group(function() {
     Route::get('{id}','CiviCRM\ContactController@findById');
+    Route::get('fields','CiviCRM\ContactController@getCreateFields');
+    Route::post('find','CiviCRM\ContactController@findByConditions');
+    Route::post('create','CiviCRM\ContactController@create');
+    Route::prefix('type')->group(function() {
+      Route::get('','CiviCRM\ContactTypeController@findAll');
+      Route::get('{id}','CiviCRM\ContactTypeController@findById');
+      Route::get('name/{name}','CiviCRM\ContactTypeController@findByName');
+      Route::get('fields','CiviCRM\ContactTypeController@getCreateTypeFields');
+      Route::post('create','CiviCRM\ContactTypeController@create');
+    });
   });
 });

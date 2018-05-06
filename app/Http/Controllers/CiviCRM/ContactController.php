@@ -14,4 +14,7 @@ class ContactController extends Controller
   public function create(Request $request) {
     return Contact::save($request->all());
   }
+  public function findByConditions(Request $request) {
+    return Contact::findByConditions($request->all());
+  }
 }
