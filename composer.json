@@ -8,6 +8,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/jamjon3/civicrm-connector.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/jamjon3/voterlistregistry-api.git"
         }
     ],
     "require": {
@@ -15,7 +19,10 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.6.*",
         "laravel/tinker": "^1.0",
-        "ymd/civicrm-connector": "master"
+        "leanwebstart/civi-api3": "^1.0",
+        "symfony/psr-http-message-bridge": "^1.0",
+        "ymd/civicrm-connector": "master",
+        "ymd/voterlistregistry-api": "master"
     },
     "require-dev": {
         "filp/whoops": "^2.0",

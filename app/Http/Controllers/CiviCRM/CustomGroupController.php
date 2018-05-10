@@ -8,20 +8,30 @@
 
 namespace App\Http\Controllers\CiviCRM;
 
-use YMD\CiviCRMconnector\Entity\CustomGroup;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 /**
  * Description of CustomGroupController
  *
- * @author jam
+ * @author James Jones
  */
 class CustomGroupController extends Controller {
-  public function findAll(): array {
-    return CustomGroup::findAll();
+  private $civiApi;
+  private $limit = 25;
+  public function __construct() {
+    $this->civiApi = new \Leanwebstart\CiviApi3\CiviApi();
+  }
+  public function findAll(Request $request): array {
+    return (array) $this->civiApi->CustomGroup->Get(["sequential" => 1, "options[limit]" => $request->input('limit')?$request->input('limit'):$this->limit ]);
+  }
+  public function findById(int $id): array {
+    return (array) $this->civiApi->CustomGroup->Get(["sequential" => 1, "id" => $id ]);    
   }
   public function findByTitle(string $title): array {
-    return CustomGroup::findByTitle($title);
+    return (array) $this->civiApi->CustomGroup->Get(["sequential" => 1, "title" => $title ]);
+  }
+  public function getFields(): array {
+    return (array) $this->civiApi->CustomGroup->Getfields(["sequential" => 1, "options[limit]" => 1000 ]);     
   }
 }

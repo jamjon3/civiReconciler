@@ -82,6 +82,10 @@
                     Laravel
                 </div>
 
+                <div id="example"></div>
+                <div id="app"></div>
+                <script src="{{asset('js/app.js')}}" ></script>
+
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
                     <a href="https://laracasts.com">Laracasts</a>
