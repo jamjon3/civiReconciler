@@ -1,0 +1,5 @@
+drupal:
+  production: []
+  test: []
+  development:
+    - civiReconciler-drupal

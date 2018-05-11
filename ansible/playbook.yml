@@ -1,0 +1,19 @@
+---
+- hosts: "{{ target_hosts }}"
+  gather_facts: "{{ gather_facts|default(true)|bool }}"
+  vars_files:
+    - ./vars/main.yml
+  vars:
+    app_name: "{{ lookup('ini', 'appBaseName type=properties file=../gradle.properties') }}"
+    app_version: "{{ lookup('ini', 'appVersion type=properties file=../gradle.properties') }}"
+  pre_tasks:
+  - raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal sudo)
+    when: "gather_facts|default(true)|bool == false"
+    tags:
+      - deploy      
+  - setup: # aka gather_facts
+    when: "gather_facts|default(true)|bool == false"
+    tags:
+      - deploy   
+
+# civiReconciler-drupal
