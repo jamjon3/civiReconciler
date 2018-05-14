@@ -2623,12 +2623,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jamjon3/voterlistregistry-api.git",
-                "reference": "b8bf8e7aa67f970a17d6d7637e2ac9aa1b7440c5"
+                "reference": "876aba839877968e7ee1cba733e74584eef9c0fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jamjon3/voterlistregistry-api/zipball/b8bf8e7aa67f970a17d6d7637e2ac9aa1b7440c5",
-                "reference": "b8bf8e7aa67f970a17d6d7637e2ac9aa1b7440c5",
+                "url": "https://api.github.com/repos/jamjon3/voterlistregistry-api/zipball/876aba839877968e7ee1cba733e74584eef9c0fc",
+                "reference": "876aba839877968e7ee1cba733e74584eef9c0fc",
                 "shasum": ""
             },
             "require": {
@@ -2671,7 +2671,7 @@
                 "source": "https://github.com/jamjon3/voterlistregistry-api/tree/master",
                 "issues": "https://github.com/jamjon3/voterlistregistry-api/issues"
             },
-            "time": "2018-05-11T02:34:50+00:00"
+            "time": "2018-05-14T10:30:44+00:00"
         }
     ],
     "packages-dev": [

@@ -50,3 +50,10 @@ Route::prefix('civicrm')->group(function () {
     });
   });
 });
+Route::prefix('vlr')->group(function () {
+  Route::prefix('identifier')->group(function() {
+    Route::prefix('type')->group(function() {
+      Route::get('','VoterListRegistry\IdentifierTypeController@findAll');
+    });
+  });
+});
