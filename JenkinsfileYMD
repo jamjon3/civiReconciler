@@ -2,7 +2,7 @@ node('master') {
   // env.JAVA_HOME = tool 'jdk8'
 
   env.PATH = "${env.JENKINS_HOME}/bin:${env.PATH}"
-  dir('civiReconciler') } {
+  dir('civiReconciler') {
     checkout scm
     stage('Get Ansible Roles') {
       sh('#!/bin/sh -e\n' + 'rm -rf ansible/roles')
