@@ -1,4 +1,5 @@
 ---
+# PHP UPGRADE REF: https://thishosting.rocks/install-php-on-ubuntu/
 - name: Update all packages to the latest version
   apt:
     upgrade: dist
@@ -41,6 +42,10 @@
     - php7.2-zip 
     - php7.2-mysql 
     - php7.2-xml
+  tags:
+    - deploy
+- name: Setup PHP Composer
+  shell: curl -s https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
   tags:
     - deploy
 # add-apt-repository ppa:nginx/stable
