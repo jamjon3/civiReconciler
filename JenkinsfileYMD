@@ -7,7 +7,9 @@ node('master') {
   stage('Get Ansible Roles') {
     sh('#!/bin/sh -e\n' + 'rm -rf ansible/roles')
     sh('#!/bin/sh -e\n' + 'ansible-galaxy install -r ansible/requirements.yml -p ansible/roles/ -f')
-    // sh('#!/bin/sh -e\n' + 'ansible-galaxy install -r requirements.yml -p roles/ -f')
+  }
+  stage('Test build in image') {
+    sh('apt-get update && apt-get upgrade')
   }
 //  stage('Build VoterListRegistry Service') {
 //    sh('#!/bin/sh -e\n' + "ansible-playbook -i 'localhost,' -c local --vault-password-file=${env.DEPLOY_KEY} ansible/playbook.yml --extra-vars 'target_hosts=all java_home=${env.JAVA_HOME} deploy_env=${env.DEPLOY_ENV} package_revision=${env.BUILD_NUMBER} gather_facts=yes' -t build")
