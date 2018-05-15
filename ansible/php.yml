@@ -1,68 +1,52 @@
 ---
-- name: create package folder
-  file:
-    path: /tmp/debs
-    state: "{{ item }}"
-  with_items:
-    - absent
-    - directory
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-  tags:
-    - deploy
-- name: Copy package to remote host
-  copy:
-    src: "{{ item }}"
-    dest: /tmp/debs
-  with_fileglob:
-    - "{{ playbook_dir }}/../build/libs/voterlistregistry*.deb"
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-  tags:
-    - deploy
-- name: Find the voterlistregistry package that was produced
-  find:
-    paths: "/tmp/debs"
-    patterns: "voterlistregistry*.deb"
-  register: iffind
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-  tags:
-    - deploy
-- name: Install a voterlistregistry .deb package
-  apt:
-    deb: "{{ item.path }}"
-  with_items: "{{ iffind.files|default([]) }}"
-  register: rc_result
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-  tags:
-    - deploy      
-- name: Add config template
-  template:
-    src: "{{ playbook_dir }}/templates/config/voterlistregistry-config.yml.j2"
-    dest: /usr/local/etc/voterlistregistry/voterlistregistry-config.yml
-    mode: 0644
-  tags:
-    - deploy    
+# PHP UPGRADE REF: https://thishosting.rocks/install-php-on-ubuntu/
 - name: Update all packages to the latest version
   apt:
     upgrade: dist
+    update_cache: yes
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
   tags:
     - deploy
-- name: create runit folders
-  file:
-    path: "/etc/service/{{ item }}"
-    state: directory
-  with_items:
-    - voterlistregistry
+- name: Install python software properties
+  apt:
+    name: python-software-properties
+    state: latest
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
   tags:
-    - deploy    
-- name: Copy over runit file
-  copy:
-    src: "{{ playbook_dir }}/files/runit/{{ item }}"
-    dest: "/etc/service/{{ item | splitext | first }}/run"
-    owner: root
-    group: root
-    mode: 0755
-  with_items:
-    - voterlistregistry.sh
+    - deploy
+- name: Add on PHP repo
+  apt_repository:
+    repo: 'ppa:ondrej/php'  
+    update_cache: yes
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
   tags:
-    - deploy 
+    - deploy
+- name: Update php to the latest version
+  apt:
+    name: php7.2
+    state: latest
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  tags:
+    - deploy
+- name: Add PHP additions
+  apt:
+    name: "{{ item }}"
+    state: present
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  with_items:
+    - php-pear 
+    - php7.2-curl 
+    - php7.2-dev 
+    - php7.2-gd 
+    - php7.2-mbstring 
+    - php7.2-zip 
+    - php7.2-mysql 
+    - php7.2-xml
+  tags:
+    - deploy
+- name: Setup PHP Composer
+  shell: curl -s https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+  tags:
+    - deploy
+# add-apt-repository ppa:nginx/stable
+
