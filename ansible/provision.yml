@@ -1,2 +1,20 @@
 ---
+- name: Install virtualenv
+  pip:
+    name: virtualenv
+    extra_args: --user
+  tags:
+    - provision    
+- name: Setup the requirements
+  pip:
+    requirements: "{{ playbook_dir }}/requirements.txt"
+    virtualenv: "{{ playbook_dir }}/roles/libs"
+    virtualenv_command: ~/.local/bin/virtualenv
+    extra_args: --upgrade
+  tags:
+    - provision    
+- name: virtualenv activate
+  shell: ". {{ playbook_dir }}/roles/libs/bin/activate"   
+  tags:
+    - provision    
 
