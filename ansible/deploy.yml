@@ -1,2 +1,8 @@
 ---
+- name: Update all packages to the latest version
+  apt:
+    upgrade: dist
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  tags:
+    - deploy
 
