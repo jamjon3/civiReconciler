@@ -17,4 +17,6 @@
   shell: ". {{ playbook_dir }}/roles/libs/bin/activate"   
   tags:
     - provision    
+    
+    
 

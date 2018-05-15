@@ -6,6 +6,8 @@
   vars:
     app_name: "{{ lookup('ini', 'appBaseName type=properties file=../gradle.properties') }}"
     app_version: "{{ lookup('ini', 'appVersion type=properties file=../gradle.properties') }}"
+  environment:
+    PYTHONPATH: "{{ playbook_dir }}/roles/libs/lib/python2.7/site-packages/"
   pre_tasks:
     - raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal sudo)
       when: "gather_facts|default(true)|bool == false"
