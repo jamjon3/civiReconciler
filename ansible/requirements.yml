@@ -11,3 +11,7 @@
   version: master
   scm: git
   name: phusionssl
+- src: ymdgit:ymd-ubuntu-php-role.git
+  version: master
+  scm: git
+  name: ubuntuphp
