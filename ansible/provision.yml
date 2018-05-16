@@ -30,7 +30,6 @@
     # command: ["sleep", "infinity"]
     ports: 
       - 80:81
-      - 22:22
     links:
       - "{{ groups[hostvars[item]['vlrhost']][0] }}:{{ groups[hostvars[item]['vlrhost']][0].split('.')[0] }}"
   with_items: "{{ groups[group_hosts] }}"
