@@ -7,7 +7,7 @@
     - build
 - name: Copy over Jenkins pub key
   copy:
-    path: ~/.ssh/id_rsa.pub
+    src: ~/.ssh/id_rsa.pub
     dest: /tmp/id_rsa.pub
   tags:
     - build
