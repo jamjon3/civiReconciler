@@ -1,6 +1,5 @@
 ---
 - name: Compress directory civiReconciler into civiReconciler.zip
-  archive:
-    path: "{{ playbook_dir }}/../../civiReconciler"
-    dest: "{{ playbook_dir }}/../../civiReconciler.zip"
-    format: zip
+  shell: "zip -r {{ playbook_dir }}/../../civiReconciler.zip {{ playbook_dir }}/../../civiReconciler"
+  become: no
+  delegate_to: 127.0.0.1
