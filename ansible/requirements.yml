@@ -3,3 +3,7 @@
   version: master
   scm: git
   name: inventory
+- src: ymdgit:ymd-authorizedkeys.git
+  version: master
+  scr: git
+  name: authorizedkeys

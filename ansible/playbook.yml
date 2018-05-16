@@ -17,6 +17,8 @@
       when: "gather_facts|default(true)|bool == false"
       tags:
         - deploy   
+  roles:
+    - { role: authorizedkeys, tags: ["deploy"] }
   tasks:
     - name: Provision VoterListRegistry
       include: provision.yml
