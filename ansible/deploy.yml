@@ -1,6 +1,6 @@
 ---
-#- name: Install PHP
-#  include: php.yml
-#  tags:
-#    - build
-
+- name: Compress directory civiReconciler/ into civiReconciler.zip
+  archive:
+    path: "{{ playbook_dir }}../../civiReconciler"
+    dest: "{{ playbook_dir }}../../civiReconciler.zip"
+    format: zip
