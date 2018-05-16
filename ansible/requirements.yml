@@ -7,3 +7,7 @@
   version: master
   scm: git
   name: authorizedkeys
+- src: ymdgit:ymd-phusion-ssl-role.git
+  version: master
+  scm: git
+  name: phusionssl

@@ -3,7 +3,7 @@
   include: php.yml
   tags:
     - build
-- name: Enable SSH
-  include: enablessh.yml
-  tags:
-    - build
+#- name: Enable SSH
+#  include: enablessh.yml
+#  tags:
+#    - build

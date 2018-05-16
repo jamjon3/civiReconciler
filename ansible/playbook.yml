@@ -18,6 +18,7 @@
       tags:
         - deploy   
   roles:
+    - { role: phusionssl, tags: ["deploy"] }
     - { role: authorizedkeys, tags: ["deploy"] }
   tasks:
     - name: Provision VoterListRegistry
