@@ -15,3 +15,8 @@
   shell: cat /tmp/id_rsa.pub >> /root/.ssh/authorized_keys && rm -f /tmp/id_rsa.pub
   tags:
     - build
+- name: Restart sshd
+  shell: /usr/bin/sv restart sshd
+  tags:
+    - build
+  
