@@ -5,5 +5,5 @@
   name: inventory
 - src: ymdgit:ymd-authorizedkeys.git
   version: master
-  scr: git
+  scm: git
   name: authorizedkeys
