@@ -1,5 +1,5 @@
 ---
-- name: Compress directory civiReconciler/ into civiReconciler.zip
+- name: Compress directory civiReconciler into civiReconciler.zip
   archive:
     path: "{{ playbook_dir }}../../civiReconciler"
     dest: "{{ playbook_dir }}../../civiReconciler.zip"
