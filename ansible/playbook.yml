@@ -4,6 +4,7 @@
   vars_files:
     - ./vars/main.yml
   vars:
+    php_version: php7.2
     app_name: "{{ lookup('ini', 'appBaseName type=properties file=../gradle.properties') }}"
     app_version: "{{ lookup('ini', 'appVersion type=properties file=../gradle.properties') }}"
   environment:
@@ -20,7 +21,7 @@
   roles:
     - { role: phusionssl, tags: ["deploy"] }
     - { role: authorizedkeys, tags: ["deploy"] }
-    - { role: ubuntuphp, php_version: "php7.2", tags: ["deploy"] }
+    - { role: ubuntuphp, php_version: php_version, tags: ["deploy"] }
     - { role: ubuntunodejs, node_version: "10", tags: ["deploy"] }
   tasks:
     - name: Provision VoterListRegistry

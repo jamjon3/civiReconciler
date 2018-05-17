@@ -1,0 +1,2 @@
+#!/bin/sh
+exec /usr/sbin/php-fpm{{ php_version..split('php') | first }} --nodaemonize -R --fpm-config /etc/php-fpm.conf
