@@ -1,6 +1,6 @@
 ---
 - name: Get the nodejs setup script
-  shell: curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh | sudo -E bash -
+  shell: curl -sL https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh | sudo -E bash -
   args:
     chdir: "/tmp"
 - name: Install nodejs
@@ -10,4 +10,5 @@
   with_items:
     - nodejs
     - npm
+    - build-essential
     
