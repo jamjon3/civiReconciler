@@ -3,6 +3,10 @@
   shell: curl -sL https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh | sudo -E bash -
   args:
     chdir: "/tmp"
+- name: Update all packages to the latest version
+  apt:
+    upgrade: dist
+    update_cache: yes
 - name: Install nodejs
   apt:
     name: "{{ item }}"
