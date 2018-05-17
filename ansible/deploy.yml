@@ -31,7 +31,8 @@
     chdir: "/var/www/civiReconciler"
   with_items:
     - php artisan config:cache
-    - php artisan route:cache
+    # - php artisan route:cache
+    # Routes need to be converted from closures to Controller references before this will work (aka: TODO)
 - name: Install nginx
   apt:
     name: nginx
