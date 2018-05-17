@@ -8,3 +8,10 @@
   copy:
     src: "{{ playbook_dir }}/../../civiReconciler.zip"
     dest: /tmp/civiReconciler.zip
+- name: Install zip packages
+  apt:
+    name: "{{ item }}"
+    state: latest 
+  with_items:
+    - unzip
+    - zip
