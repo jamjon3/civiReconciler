@@ -34,7 +34,7 @@
 - name: Copy over phpfpm runit file
   template:
     src: "{{ playbook_dir }}/templates/runit/{{ item }}"
-    dest: "/etc/service/{{ item | splitext | first }}/run"
+    dest: "/etc/service/{{ item | splitext | first | splitext | first }}/run"
     owner: root
     group: root
     mode: 0755
