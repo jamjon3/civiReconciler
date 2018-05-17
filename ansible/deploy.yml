@@ -15,3 +15,7 @@
   with_items:
     - unzip
     - zip
+- name: unzip civiReconciler
+  shell: unzip civiReconciler.zip
+  args:
+    chdir: "/tmp"
