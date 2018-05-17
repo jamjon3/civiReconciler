@@ -21,3 +21,7 @@
   shell: unzip civiReconciler.zip -d /var/www
   args:
     chdir: "/tmp"
+- name: Install Composer deps
+  composer:
+    command: install
+    working_dir: /var/www/civiReconciler
