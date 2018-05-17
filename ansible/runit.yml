@@ -5,10 +5,10 @@
 #  template:
 #    src: "{{ playbook_dir }}/templates/nginx/nginx.conf.j2"
 #    dest: /etc/nginx/nginx.conf 
-- name: Copy over php-fpm conf for Laravel
-  copy:
-    src: "{{ playbook_dir }}/files/php-fpm/php-fpm.conf"
-    dest: /etc/php-fpm.conf 
+#- name: Copy over php-fpm conf for Laravel
+#  copy:
+#    src: "{{ playbook_dir }}/files/php-fpm/php-fpm.conf"
+#    dest: /etc/php-fpm.conf 
 - name: create runit folders
   file:
     path: "/etc/service/{{ item }}"
