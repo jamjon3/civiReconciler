@@ -23,3 +23,9 @@
   version: master
   scm: git
   name: ubuntunginx
+- src: ymdgit:ymd-ansible-puppet-client.git
+  version: master
+  scm: git
+  name: ymdpuppetclient
+  
+  
