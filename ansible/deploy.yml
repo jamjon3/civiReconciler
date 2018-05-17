@@ -52,5 +52,9 @@
   with_items:
     - nodejs
     - npm
+- name: Install nodejs dependencies
+  shell: npm install
+  args:
+    chdir: "/var/www/civiReconciler"
 
  
