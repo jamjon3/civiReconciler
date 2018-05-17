@@ -1,9 +1,11 @@
 ---
 - name: Compress directory civiReconciler into civiReconciler.zip
-  shell: "zip -r {{ playbook_dir }}/../../civiReconciler.zip {{ playbook_dir }}/../../civiReconciler"
+  shell: "zip -r civiReconciler.zip civiReconciler"
   become: no
   run_once: true
   delegate_to: 127.0.0.1
+  args:
+    chdir: "{{ playbook_dir }}/../../"
 - name: example copying file with owner and permissions
   copy:
     src: "{{ playbook_dir }}/../../civiReconciler.zip"
