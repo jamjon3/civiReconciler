@@ -1,0 +1,13 @@
+---
+- name: Get the nodejs setup script
+  shell: curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh | sudo -E bash -
+  args:
+    chdir: "/tmp"
+- name: Install nodejs
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - nodejs
+    - npm
+    
