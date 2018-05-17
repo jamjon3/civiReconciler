@@ -16,9 +16,10 @@ use Illuminate\Http\Request;
  * Temporarily taking out the auth:api Middleware
  * Route::middleware('auth:api')->
  */
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-  return $request->user();
-});
+// Removing this as closure is not suitable for optization and breaks that step
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//  return $request->user();
+//});
 Route::prefix('civicrm')->group(function () {
   Route::prefix('contact')->group(function() {
     Route::prefix('type')->group(function() {
