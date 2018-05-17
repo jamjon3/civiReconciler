@@ -45,5 +45,12 @@
   copy:
     src: "{{ playbook_dir }}/files/php-fpm/php-fpm.conf"
     dest: /etc/php-fpm.conf 
+- name: Install nodejs
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - nodejs
+    - npm
 
  
