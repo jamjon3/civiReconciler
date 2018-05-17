@@ -27,5 +27,9 @@
   version: master
   scm: git
   name: ymdpuppetclient
+- src: ymdgit:ymd-ubuntu-fpm-role.git
+  version: master
+  scm: git
+  name: ymdfpm
   
   
