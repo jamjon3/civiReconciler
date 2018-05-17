@@ -37,8 +37,13 @@
   shell: npm install
   args:
     chdir: "/var/www/civiReconciler"
+- name: Change owner and group of laravel
+  file: 
+    dest: /var/www/civiReconciler
+    owner: www-data 
+    group: www-data
+    recurse: yes  
 - name: Setup Runit services
   include: runit.yml
   tags:
     - deploy 
-  # www-data.www-data
