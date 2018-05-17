@@ -1,8 +1,20 @@
 ---
-- name: Get the nodejs setup script
-  shell: curl -sL https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh | sudo -E bash -
-  args:
-    chdir: "/tmp"
+- name: Install development tools
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - gcc 
+    - g++ 
+    - make
+    - build-essential
+- name: Execute the nodejs setup script
+  shell: curl -sL https://deb.nodesource.com/setup_10.x | bash -
+- name: Setup yarn
+  shell: "{{ item }}"
+  with_items:
+    - curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+    - echo 'deb https://dl.yarnpkg.com/debian/ stable main' | sudo tee /etc/apt/sources.list.d/yarn.list
 - name: Update all packages to the latest version
   apt:
     upgrade: dist
@@ -14,5 +26,6 @@
   with_items:
     - nodejs
     - npm
-    - build-essential
+    - yarn
+    
     
