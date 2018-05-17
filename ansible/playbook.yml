@@ -21,8 +21,9 @@
   roles:
     - { role: phusionssl, tags: ["deploy"] }
     - { role: authorizedkeys, tags: ["deploy"] }
-    - { role: ubuntuphp, tags: ["deploy"] }
     - { role: ubuntunodejs, node_version: "10", tags: ["deploy"] }
+    - { role: ubuntunginx, tags: ["deploy"] }
+    - { role: ubuntuphp, tags: ["deploy"] }
   tasks:
     - name: Provision VoterListRegistry
       include: provision.yml

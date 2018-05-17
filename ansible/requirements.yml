@@ -19,3 +19,7 @@
   version: master
   scm: git
   name: ubuntunodejs
+- src: ymdgit:ymd-ubuntu-nginx.git
+  version: master
+  scm: git
+  name: ubuntunginx

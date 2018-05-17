@@ -1,6 +1,6 @@
 ---
-- name: Setup nginx
-  include: nginx.yml
+#- name: Setup nginx
+#  include: nginx.yml
 - name: Copy over nginx conf for Laravel
   template:
     src: "{{ playbook_dir }}/templates/nginx/nginx.conf.j2"
