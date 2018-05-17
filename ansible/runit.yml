@@ -16,6 +16,12 @@
     - phpfpm
   tags:
     - deploy    
+- name: Add the folder for the PHP FPM pid file
+  file:
+    path: /run/php/
+    state: directory
+  tags:
+    - deploy    
 - name: Copy over nginx runit file
   copy:
     src: "{{ playbook_dir }}/files/runit/{{ item }}"
