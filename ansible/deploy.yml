@@ -25,3 +25,11 @@
   composer:
     command: install
     working_dir: /var/www/civiReconciler
+- name: Optimize Configuration loading and routes
+  shell: "{{ item }}"
+  args:
+    chdir: "/var/www/civiReconciler"
+  with_items:
+    - php artisan config:cache
+    - php artisan route:cache
+  
