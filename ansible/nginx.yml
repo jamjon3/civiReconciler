@@ -1,0 +1,22 @@
+---
+- name: Add software properties common
+  apt:
+    name: software-properties-common
+    state: latest
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+- name: Add on NGINX repo
+  apt_repository:
+    repo: 'ppa:nginx/stable'  
+    update_cache: yes
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+- name: Update all packages to the latest version
+  apt:
+    upgrade: dist
+    update_cache: yes
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+- name: Install nginx
+  apt:
+    name: nginx
+    state: latest 
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    
