@@ -21,7 +21,7 @@
   roles:
     - { role: phusionssl, tags: ["deploy"] }
     - { role: authorizedkeys, tags: ["deploy"] }
-    - { role: ubuntuphp, php_version: php_version, tags: ["deploy"] }
+    - { role: ubuntuphp, php_version: "{{ php_version }}", tags: ["deploy"] }
     - { role: ubuntunodejs, node_version: "10", tags: ["deploy"] }
   tasks:
     - name: Provision VoterListRegistry
