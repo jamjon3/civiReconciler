@@ -45,8 +45,6 @@
   copy:
     src: "{{ playbook_dir }}/files/php-fpm/php-fpm.conf"
     dest: /etc/php-fpm.conf 
-- name: Include nginx build
-  include: nginx.yml
 - name: Install nodejs dependencies
   shell: npm install
   args:

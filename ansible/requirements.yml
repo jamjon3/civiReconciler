@@ -15,3 +15,7 @@
   version: master
   scm: git
   name: ubuntuphp
+- src: ymdgit:ymd-ubuntu-nodejs.git
+  version: master
+  scm: git
+  name: ubuntunodejs
