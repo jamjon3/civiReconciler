@@ -3,6 +3,7 @@
   gather_facts: "{{ gather_facts|default(true)|bool }}"
   vars_files:
     - ./vars/main.yml
+    - ./vars/vault.yml
   vars:
     php_version: php7.2
     app_name: "{{ lookup('ini', 'appBaseName type=properties file=../gradle.properties') }}"

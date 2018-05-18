@@ -3,3 +3,12 @@ drupal:
   test: []
   development:
     - civiReconciler-drupal
+app:
+  name: civiReconciler
+  environments:
+    production:
+      debug: false
+    test:
+      debug: true
+    development:
+      debug: true

@@ -21,6 +21,10 @@
   shell: unzip civiReconciler.zip -d /var/www
   args:
     chdir: "/tmp"
+- name: Setup the .env file
+  template:
+    src: "{{ playbook_dir }}/templates/env.j2"
+    dest: "/var/www/civiReconciler/.env"
 - name: Install Composer deps
   composer:
     command: install
