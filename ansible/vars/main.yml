@@ -5,6 +5,7 @@ drupal:
     - civiReconciler-drupal
 app:
   name: civiReconciler
+  version: 1.0.0
   environments:
     production:
       debug: false
