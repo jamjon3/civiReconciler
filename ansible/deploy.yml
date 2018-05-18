@@ -37,7 +37,7 @@
     - php artisan config:cache
     # - php artisan route:cache
     # Routes need to be converted from closures to Controller references before this will work (aka: TODO)
-- name: Install nodejs dependencies
+- name: Install nodejs dependencies and build javascript
   shell: "{{ item }}"
   args:
     chdir: "/var/www/civiReconciler"
