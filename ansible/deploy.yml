@@ -38,9 +38,12 @@
     # - php artisan route:cache
     # Routes need to be converted from closures to Controller references before this will work (aka: TODO)
 - name: Install nodejs dependencies
-  shell: npm install
+  shell: "{{ item }}"
   args:
     chdir: "/var/www/civiReconciler"
+  with_items:
+    - npm install
+    - "npm run {{ 'production' if deploy_env == 'Production' else 'development' }}"
 - name: Change owner and group of laravel
   file: 
     dest: /var/www/civiReconciler
