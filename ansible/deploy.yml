@@ -54,3 +54,8 @@
   include: runit.yml
   tags:
     - deploy 
+- name: Build the package
+  include: package.yml
+  run_once: true
+  tags:
+    - deploy 
