@@ -11,7 +11,7 @@
   environment:
     PYTHONPATH: "{{ playbook_dir }}/roles/libs/lib/python2.7/site-packages/"
   pre_tasks:
-    - raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal sudo)
+    - raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal python-virtualenv python-pip sudo)
       when: "gather_facts|default(true)|bool == false"
       tags:
         - deploy      
