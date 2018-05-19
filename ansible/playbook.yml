@@ -8,8 +8,8 @@
     php_version: php7.2
     app_name: "{{ lookup('ini', 'appBaseName type=properties file=../gradle.properties') }}"
     app_version: "{{ lookup('ini', 'appVersion type=properties file=../gradle.properties') }}"
-  environment:
-    PYTHONPATH: "{{ playbook_dir }}/roles/libs/lib/python2.7/site-packages/"
+#  environment:
+#    PYTHONPATH: "{{ playbook_dir }}/roles/libs/lib/python2.7/site-packages/"
   pre_tasks:
     - raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal python-virtualenv python-pip sudo)
       when: "gather_facts|default(true)|bool == false"
@@ -26,8 +26,8 @@
     - { role: ubuntunginx, tags: ["deploy"] }
     - { role: ubuntuphp, tags: ["deploy"] }
     - { role: ymdpuppetclient, tags: ["deploy"] }
-    - { role: ymddockerpy, tags: ["provision","deploy"] }
     - { role: ymdfpm, tags: ["deploy"] }
+    - { role: ymddockerpy, tags: ["provision"] }
   tasks:
     - name: Provision VoterListRegistry
       include: provision.yml
