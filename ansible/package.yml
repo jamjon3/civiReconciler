@@ -29,6 +29,4 @@
     dest: "{{ playbook_dir }}/../../"
     flat: yes
   with_items: "{{ packagefind.files|default([]) }}"
-- debug:
-    msg: "{{ packagefind }}"
 
