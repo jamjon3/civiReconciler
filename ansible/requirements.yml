@@ -31,5 +31,10 @@
   version: master
   scm: git
   name: ymdfpm
+- src: ymdgit:ymd-ubuntu-dockerpy.git
+  version: master
+  scm: git
+  name: ymddockerpy
+  
   
   

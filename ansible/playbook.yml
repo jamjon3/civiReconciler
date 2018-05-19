@@ -26,6 +26,7 @@
     - { role: ubuntunginx, tags: ["deploy"] }
     - { role: ubuntuphp, tags: ["deploy"] }
     - { role: ymdpuppetclient, tags: ["deploy"] }
+    - { role: ymddockerpy, tags: ["provision","deploy"] }
     - { role: ymdfpm, tags: ["deploy"] }
   tasks:
     - name: Provision VoterListRegistry
