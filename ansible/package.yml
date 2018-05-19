@@ -13,16 +13,12 @@
     dest: "{{ playbook_dir }}/../../"
     flat: yes
   with_fileglob:
-    - "./{{ app.name }}*.rpm"
-  args:
-      chdir: "/var/www/civiReconciler"
+    - "/var/www/civiReconciler/civiReconciler*.rpm"
 - name: Fetch DEB package to local
   fetch:
     src: "{{ item }}"
     dest: "{{ playbook_dir }}/../../"
     flat: yes
   with_fileglob:
-    - "./{{ app.name | lower }}*.deb"
-  args:
-      chdir: "/var/www/civiReconciler"
+    - "/var/www/civiReconciler/civireconciler*.deb"
 
