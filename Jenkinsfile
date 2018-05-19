@@ -9,7 +9,7 @@ node('master') {
       sh('#!/bin/sh -e\n' + 'ansible-galaxy install -r ansible/requirements.yml -p ansible/roles/ -f')
       sh('#!/bin/sh -e\n' + 'rm -f ../civiReconciler.zip');
       sh('#!/bin/sh -e\n' + 'rm -f ../civiReconciler*.rpm');
-      sh('#!/bin/sh -e\n' + 'rm -f ../civiReconciler*.deb');
+      sh('#!/bin/sh -e\n' + 'rm -f ../civireconciler*.deb');
     }
     stage('Provision civiReconciler Service') {
       docker.withServer('tcp://172.17.0.1:4243', 'jerkins-client-certs-signed-by-docker-ca') {
