@@ -7,7 +7,7 @@
   shell: "fpm -s dir -t deb -n {{ app.name | lower | quote }} -v {{ app.version | quote }} --iteration {{ package_revision | quote }} --description {{ 'civiReconcile Service' | quote }} --vendor {{ 'YMD Partners' | quote }} ./app/.=/var/www/civiReconciler/app ./bootstrap/.=/var/www/civiReconciler/bootstrap ./config/.=/var/www/civiReconciler/config ./database/.=/var/www/civiReconciler/database ./node_modules/.=/var/www/civiReconciler/node_modules ./public/.=/var/www/civiReconciler/public ./resources/.=/var/www/civiReconciler/resources ./routes/.=/var/www/civiReconciler/routes ./storage/.=/var/www/civiReconciler/storage ./tests/.=/var/www/civiReconciler/tests ./vendor/.=/var/www/civiReconciler/vendor ./.env.example=/var/www/civiReconciler/.env.example ./README.md=/var/www/civiReconciler/README.md ./artisan=/var/www/civiReconciler/artisan ./composer.json=/var/www/civiReconciler/composer.json ./composer.lock=/var/www/civiReconciler/composer.lock ./package-lock.json=/var/www/civiReconciler/package-lock.json ./package.json=/var/www/civiReconciler/package.json ./phpunit.xml=/var/www/civiReconciler/phpunit.xml ./server.php=/var/www/civiReconciler/server.php ./webpack.mix.js=/var/www/civiReconciler/webpack.mix.js /etc/service/nginx/run=/etc/service/nginx/run /etc/service/phpfpm/run=/etc/service/phpfpm/run"
   args:
       chdir: "/var/www/civiReconciler"
-- name: Find the iam-feeds RPM that was produced
+- name: Find the civiReconciler RPM that was produced
   find:
     paths: "/var/www/civiReconciler"
     patterns: "civiReconciler*.rpm"
@@ -18,22 +18,17 @@
     dest: "{{ playbook_dir }}/../../"
     flat: yes
   with_items: "{{ packagefind.files|default([]) }}"
-
-#- name: Fetch RPM package to local
-#  fetch:
-#    src: "{{ item }}"
-#    dest: "{{ playbook_dir }}/../../"
-#    flat: yes
-#  register: fetchglob
-#  with_fileglob:
-#    - "/var/www/civiReconciler/civiReconciler*.rpm"
-- debug:
-    msg: "{{ packagefind }}"
+- name: Find the civiReconciler DEB that was produced
+  find:
+    paths: "/var/www/civiReconciler"
+    patterns: "civireconciler*.deb"
+  register: packagefind
 - name: Fetch DEB package to local
   fetch:
-    src: "{{ item }}"
+    src: "{{ item.path }}"
     dest: "{{ playbook_dir }}/../../"
     flat: yes
-  with_fileglob:
-    - "/var/www/civiReconciler/civireconciler*.deb"
+  with_items: "{{ packagefind.files|default([]) }}"
+- debug:
+    msg: "{{ packagefind }}"
 
